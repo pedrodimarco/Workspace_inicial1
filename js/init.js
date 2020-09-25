@@ -50,4 +50,5 @@ if (!sessionStorage.getItem('logueado') &&
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+  document.getElementById("usuario-ingresado").innerHTML = ` <i class="fas fa-user"></i> ` + ` ` + localStorage.getItem('cuenta');
 });
