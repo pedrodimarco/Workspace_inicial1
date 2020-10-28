@@ -46,10 +46,10 @@ function showProductsList(){
             ((maxCost == undefined) || (maxCost != undefined && parseInt(products.cost) <= maxCost))){
 
         htmlContentToAppend += `
-        <a class="list-group-item list-group-item-action" href="#">
+        <a class="list-group-item list-group-item-action" href="product-info.html?name=` + products.name + `" class="list-group-item list-group-item-action">
             <div class="row">
                 <div class="col-3">
-                    <img src="` + products.imgSrc + `" alt="` + products.name + `" class="img-thumbnail">
+                    <img src="` + products.imgSrc + `" alt="` + products.desc + `" class="img-thumbnail">
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">

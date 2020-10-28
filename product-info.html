@@ -13,6 +13,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <!-- Star rating -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -27,11 +29,115 @@
     </div>
   </nav>
   <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="text-center p-4">
+      <h2>Descripción del producto.</h2>
+      <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+      <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+        seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+    </div>
+    <section class="mb-5">
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-md-0">
+          <div id="mdb-lightbox-ui"></div>
+          <div class="mdb-lightbox">
+            <div class="row product-gallery mx-1">
+              <div class="col-12 mb-0">
+                <h5>(Imagenes ilustrativas)</h5>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                  <ol class="carousel-indicators" id="lista-ordenada">
+                  </ol>
+                  <div class="carousel-inner" id="imagen-carousel">
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3 id="car-name">Car name</h3>
+          <p class="mb-2 text-muted text-uppercase small" id="car-category">Categoría: </p>
+          <p><span class="mr-1" id="car-price"><strong>Precio: </strong></span></p>
+          <p class="pt-1" id="car-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam,
+            sapiente illo. Sit
+            error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+            officia quis dolore quos sapiente tempore alias.</p>
+          <div class="table-responsive">
+            <table class="table table-sm table-borderless mb-0">
+              <tbody>
+                <tr>
+                  <th class="pl-0 w-25" scope="row"><strong>Unidades vendidas</strong></th>
+                  <td id="car-count">car count</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <hr>
+          <button type="button" class="btn btn-light btn-md mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Agregar
+            a carrito</button>
+        </div>
+      </div>
+    </section>
+    <!--Section: Block Content-->
+
+    <!-- BOOSTRAP END -->
+    <hr>
+    <h3>Productos relacionados: </h3>
+    <div class="row text-center text-lg-left pt-2" id="related-products"></div>
+    <hr>
+    <h3>Comentarios: </h3>
+    <div class="row text-center text-lg-left pt-2" id="comments-container"></div>
+    <div class="container">
+      <div class="text-center p-4">
+        <h2>Deja tu comentario!</h2>
+      </div>
+      <div class="row justify-content-md-center">
+        <div class="col-md-8 order-md-1">
+          <form class="needs-validation" id="comment-info" action="" method="POST">
+            <div class="row">
+
+            </div>
+            <div class="row">
+            </div>
+            <div class="row">
+              <div class="col-md-12 mb-3">
+                <label for="productDescription">Comentarios sobre el producto</label>
+                <textarea class="form-control" id="userComment" rows="3"></textarea>
+              </div>
+            </div>
+            <div class="d-block my-3">
+              <p>Clasificación del producto:</p>
+              <div class="star-rating">
+                <div class="star-rating__wrap">
+                  <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5"
+                    title="5 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4"
+                    title="4 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3"
+                    title="3 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2"
+                    title="2 out of 5 stars"></label>
+                  <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1" checked>
+                  <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1"
+                    title="1 out of 5 stars"></label>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-lg" type="button" id="crik">Comentar</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
   <footer class="text-muted">
