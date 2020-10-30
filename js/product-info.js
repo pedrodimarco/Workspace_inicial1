@@ -43,7 +43,7 @@ function showRelatedProducts(array) {
 
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
-            <a class="list-group-item list-group-item-action" href="product-info.html?name=` + proRel.name + `" class="list-group-item list-group-item-action">
+            <a href="product-info.html?name=` + proRel.name + `">
               <div class="d-block mb-4 h-100">
                 <img class="img-fluid img-thumbnail" src="` + proRel.imgSrc + `" alt="">
                 <strong> ` + proRel.name + " " + proRel.currency + " " + proRel.cost + ` </strong>
@@ -78,7 +78,7 @@ function showCommentsList() {
                 </div>
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1"><strong> ` + comm.user + `</strong></h4>
+                        <h5 class="mb-1"><strong> ` + comm.user + `</strong></h5>
                         <small class="text-muted">` + comm.dateTime + `</small>
                     </div>
                     <p>` + comm.description + `</p>
@@ -101,11 +101,11 @@ function addComment(comentario) {
         <a class="list-group-item-action">
                 <div class="col">
                     <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1"><strong> ` + comm.user + `</strong></h4>
+                        <h5 class="mb-1"><strong> ` + comm.user + `</strong></h5>
                         <small class="text-muted">` + comm.dateTime + `</small>
                     </div>
                     <p>` + comm.description + `</p>
-                    <h4>` + comm.score + `</h4>
+                    <h5>` + comm.score + `</h5>
                 </div>
             </div>
             <hr>
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             productCategoryHTML.innerHTML += product.category;
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description;
-            productCountHTML.innerHTML = product.soldCount;
+            productCountHTML.innerHTML += product.soldCount;
             productCostHTML.innerHTML += product.currency + " " + product.cost;
 
             //Muestro las imagenes en forma de galería

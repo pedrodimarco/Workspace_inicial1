@@ -7,36 +7,36 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
-var showSpinner = function(){
+var showSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "block";
 }
 
-var hideSpinner = function(){
+var hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-var getJSONData = function(url){
-    var result = {};
-    showSpinner();
-    return fetch(url)
+var getJSONData = function (url) {
+  var result = {};
+  showSpinner();
+  return fetch(url)
     .then(response => {
       if (response.ok) {
         return response.json();
-      }else{
+      } else {
         throw Error(response.statusText);
       }
     })
-    .then(function(response) {
-          result.status = 'ok';
-          result.data = response;
-          hideSpinner();
-          return result;
+    .then(function (response) {
+      result.status = 'ok';
+      result.data = response;
+      hideSpinner();
+      return result;
     })
-    .catch(function(error) {
-        result.status = 'error';
-        result.data = error;
-        hideSpinner();
-        return result;
+    .catch(function (error) {
+      result.status = 'error';
+      result.data = error;
+      hideSpinner();
+      return result;
     });
 }
 
@@ -45,10 +45,26 @@ if (!sessionStorage.getItem('logueado') &&
   window.location.href = "login.html"
 };
 
+function cerrarSesion() {
+  sessionStorage.removeItem('logueado');
+  localStorage.removeItem('cuenta');
+  window.location.href = "index.html";
+}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-  document.getElementById("usuario-ingresado").innerHTML = ` <i class="fas fa-user"></i> ` + ` ` + localStorage.getItem('cuenta');
+document.addEventListener("DOMContentLoaded", function (e) {
+  document.getElementById("usuario-ingresado").innerHTML = ` <div class="btn-group">
+  <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    ${localStorage.getItem('cuenta')}
+  </button>
+  <div class="dropdown-menu">
+  <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+  <a class="dropdown-item" href="cart.html">Mi carrito</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+  </div>
+  </div>
+</div>  `;
 });
